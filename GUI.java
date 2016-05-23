@@ -1,13 +1,9 @@
-//package CS430;
+package CS430;
 
 import java.awt.GridLayout;
 import java.sql.*;
-//import java.text.DateFormat;
-//import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-//import java.util.Scanner;
-
 import javax.swing.*;
 
 public class GUI {
@@ -67,7 +63,7 @@ public class GUI {
 				
 				myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS));
 				
-				myPanel.add(new JLabel("FIRST_NAME:"));						//Registers the student by taking all the required attributes
+				myPanel.add(new JLabel("FIRST_NAME:"));			//Registers the student by taking all the required attributes
 				JTextField Firstname = new JTextField(10);
 				myPanel.add(Firstname);
 				
@@ -112,8 +108,8 @@ public class GUI {
 	          }
 			
 			
-			ArrayList<String> Classid=new ArrayList<String>();				//Array Declaration for ClassIDs
-			ArrayList<String> prereq=new ArrayList<String>();				//Array Declaration for Pre-requisites
+			ArrayList<String> Classid=new ArrayList<String>();		//Array Declaration for ClassIDs
+			ArrayList<String> prereq=new ArrayList<String>();		//Array Declaration for Pre-requisites
 			
 			try{
 	            rs2 = stmt.executeQuery("select CLASSID, group_concat(PreReq_ClassID) as Prereq from CLASS_PREREQ group by CLASSID;");
@@ -144,7 +140,7 @@ public class GUI {
 			String[] qualified = new String[20];
 			int qual=0;
 			
-			for(int i=0;i<classsize.length;i++){							//Find the courses student can enroll for
+			for(int i=0;i<classsize.length;i++){				//Find the courses student can enroll for
 				String[] prereqsep = reqsize[i].split(",");
 				for(int i1=0;i1<prereqsep.length;i1++){
 					prereqsep[i1]=prereqsep[i1].trim();
@@ -159,13 +155,13 @@ public class GUI {
 			}
 			
 																			//Only adding those courses that do not have any prerequisites
-			try{																	
+		try{																	
 	            rs2 = stmt.executeQuery("SELECT PreReq_ClassID from CLASS_PREREQ WHERE PreReq_ClassID NOT IN (SELECT CLASSID from CLASS_PREREQ);");
 	            while(rs2.next()){
 	            	qualified[qual]=rs2.getString(1);											
 	            	qual++;
-	            }
-	          }catch(Exception e){
+	             		}
+	            }catch(Exception e){
 	            System.out.print(e);
 	          }
 
