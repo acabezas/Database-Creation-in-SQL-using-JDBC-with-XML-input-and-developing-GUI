@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 
 public class Parser {
 
-	private String XMLFilePathName = null;
+    private String XMLFilePathName = null;
     private Connection con;
 	
 	public Parser(String s, Connection con) {
@@ -107,7 +107,7 @@ public class Parser {
 					    						+ ", CLASSROOM: " + ClassRoom.toString() + ", TIME: " + Time.toString());
 					    	
 				   	
-					    			// Check if CLASSID, EMP_ID, SECTION and SEMESTER is present in TEACHES table
+					    	// Check if CLASSID, EMP_ID, SECTION and SEMESTER is present in TEACHES table
 					    	ResultSet Teach = stmt.executeQuery("select * from TEACHES where CLASSID = '"
 									+ClassId.toString()+"' and SECTIONNUMBER = '"
 									+SectionNo.toString()+"' and SEMESTER = '"
