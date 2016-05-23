@@ -9,4 +9,5 @@ java -cp /_Path_to_the_jar_/Lab4.jar:/usr/share/java/mysql-connector-java.jar:. 
 2) GUI.java contains the code for Graphical User Interface, which should be first compiled and then run as follows:
 
 javac GUI.java
+
 java GUI
