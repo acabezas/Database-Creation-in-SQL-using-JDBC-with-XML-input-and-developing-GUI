@@ -1,13 +1,11 @@
 package CS430;
 
-
 import java.sql.*;
-
 import CS430.Parser;
 
 public class Connection {
 	
-	Statement stmt;
+    Statement stmt;
     ResultSet rs;
     Connection con;
 
